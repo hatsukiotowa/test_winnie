@@ -3,4 +3,3 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-steps: - task: Docker@1 displayName: 'Build an image' inputs: azureSubscriptionEndpoint: 'AZ-RG-CS-Mindtree-PaaS-B2C-NA-NonProd-01' azureContainerRegistry: azpocstageadminnp01.azurecr.io dockerFile: Dockerfile imageName: '$(Build.Repository.Name)/dev:$(Build.BuildId)'
