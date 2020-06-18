@@ -1,0 +1,8 @@
+
+steps:
+- task: Docker@1
+  displayName: Build an image
+  inputs:
+    azureSubscriptionEndpoint: tomcat0618.azurecr.io
+    dockerfile: '$(Build.SourcesDirectory)/Dockerfile'
+    imageName: '$(Build.Repository.Name)/dev:$(Build.BuildId)'
