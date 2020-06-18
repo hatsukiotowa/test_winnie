@@ -1,4 +1,5 @@
 
+steps:
 - task: Docker@1
   inputs:
     containerregistrytype: 'Azure Container Registry'
