@@ -1,10 +1,14 @@
-
-steps:
-- task: Docker@1
-  inputs:
-    containerregistrytype: 'Azure Container Registry'
-    azureSubscriptionEndpoint: 'Visual Studio Enterprise(be19cba4-6d38-4ad6-b108-d666ba6efc99)'
-    azureContainerRegistry: 'tomcat0618.azurecr.io'
-    command: 'Build an image'
-    dockerFile: '**/Dockerfile'
-    imageName: '$(Build.Repository.Name)/dev:$(Build.BuildId)'
+jobs:
+- job: Linux
+  pool:
+    vmImage: 'ubuntu-latest'
+  steps:
+  - script: echo hello from Linux
+  - task: Docker@1
+    inputs:
+      containerregistrytype: 'Azure Container Registry'
+      azureSubscriptionEndpoint: 'Visual Studio Enterprise(be19cba4-6d38-4ad6-b108-d666ba6efc99)'
+      azureContainerRegistry: 'tomcat0618.azurecr.io'
+      command: 'Build an image'
+      dockerFile: '**/Dockerfile'
+      imageName: '$(Build.Repository.Name)/dev:$(Build.BuildId)'
